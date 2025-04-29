@@ -6,8 +6,16 @@ public abstract class Module implements Comparable<Module> {
     String name;
     int difficulty;
 
+    /**
+     * displays the module
+     */
     abstract void display();
 
+    /**
+     * Checks if the answer is right
+     * @param answer the answer translated into an int
+     * @return whether it is right or not
+     */
     abstract boolean solve(int answer);
 
     @Override
