@@ -26,28 +26,28 @@ public class ButtonModuleTest {
 
     @Test
     void ButtonTest_solveBlue() {
-        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.RED);
+        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.BLUE);
 
         Assertions.assertTrue(buttonModule.solve("hold 3"));
     }
 
     @Test
     void ButtonTest_solveGreen() {
-        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.RED);
+        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.GREEN);
 
         Assertions.assertTrue(buttonModule.solve("hold 1"));
     }
 
     @Test
     void ButtonTest_solveYellow() {
-        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.RED);
+        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.YELLOW);
 
         Assertions.assertTrue(buttonModule.solve("hold 10"));
     }
 
     @Test
     void ButtonTest_solveWhite() {
-        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.RED);
+        ButtonModule buttonModule = new ButtonModule(ButtonModule.ButtonColor.WHITE);
 
         Assertions.assertTrue(buttonModule.solve("press"));
     }
