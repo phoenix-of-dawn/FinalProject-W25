@@ -3,20 +3,20 @@ package org.example.modules;
 import java.util.Comparator;
 
 public abstract class Module implements Comparable<Module> {
-    String name;
-    int difficulty;
+    protected String name;
+    protected int difficulty;
 
     /**
      * displays the module
      */
-    abstract void display();
+    abstract public void display();
 
     /**
      * Checks if the answer is right
-     * @param answer the answer translated into an int
+     * @param answer the answer
      * @return whether it is right or not
      */
-    abstract boolean solve(int answer);
+    abstract public boolean solve(String answer);
 
     @Override
     public int compareTo(Module o) {
