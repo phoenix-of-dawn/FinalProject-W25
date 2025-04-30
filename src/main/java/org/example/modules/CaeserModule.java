@@ -2,7 +2,7 @@ package org.example.modules;
 
 import java.util.Random;
 
-public class CaeserModule extends Module {
+public class CaeserModule extends Module implements Randomizable {
     private int shift;
     private String caeserString = "";
     private String decodedString = "";
@@ -52,6 +52,11 @@ public class CaeserModule extends Module {
     @Override
     public boolean solve(String answer) {
         return false;
+    }
+
+    @Override
+    public void randomize() {
+        
     }
 
     public String getCaeserString() {

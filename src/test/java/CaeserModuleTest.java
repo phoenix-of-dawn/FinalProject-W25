@@ -26,9 +26,20 @@ public class CaeserModuleTest {
         Assertions.assertTrue(testModule.solve("abcdefgh"));
     }
 
+    @Test
     void CaeserTest_Solve2() {
         CaeserModule testModule = new CaeserModule(3, "abcdefgh");
 
         Assertions.assertFalse(testModule.solve(null));
+    }
+
+    @Test
+    void CaeserTest_Randomize() {
+        CaeserModule testModule = new CaeserModule(3, "abcdefgh");
+
+        String initial = testModule.getCaeserString();
+
+        testModule.randomize();
+        Assertions.assertNotEquals(initial, testModule.getCaeserString());
     }
 }
