@@ -46,17 +46,18 @@ public class CaeserModule extends Module implements Randomizable {
 
     @Override
     public void display() {
-
+        // TODO: Implement this
     }
 
     @Override
     public boolean solve(String answer) {
+        // TODO: Implement this
         return false;
     }
 
     @Override
     public void randomize() {
-        
+        // TODO: Implement this
     }
 
     public String getCaeserString() {
