@@ -1,6 +1,7 @@
 package org.example.modules;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public abstract class Module implements Comparable<Module> {
     protected String name;
@@ -38,5 +39,24 @@ public abstract class Module implements Comparable<Module> {
                 case null, default -> o1.compareTo(o2);
             };
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Module module)) return false;
+        return difficulty == module.difficulty && Objects.equals(name, module.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
+    }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "name='" + name + '\'' +
+                ", difficulty=" + difficulty +
+                '}';
     }
 }
