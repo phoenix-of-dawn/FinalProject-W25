@@ -1,4 +1,6 @@
 import org.example.GameController;
+import org.example.modules.Module;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

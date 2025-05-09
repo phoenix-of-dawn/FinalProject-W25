@@ -1,9 +1,9 @@
 package org.example;
 
+import org.example.modules.*;
 import org.example.modules.Module;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class GameController {
     private List<Module> modules;
@@ -30,11 +30,32 @@ public class GameController {
         // TODO: Implement starting the game
     }
 
-    private static void initModules() {
-        // TODO: Implement this
+    private void initModules() {
+        this.modules = new ArrayList<>();
+        Set<Integer> seen = new HashSet<>();
+        Random rand = new Random();
+
+        for (int i = 0; i < 3; i++) {
+            int next = rand.nextInt(0, 5);
+            while (seen.contains(next)) {
+                next = rand.nextInt(0, 5);
+            }
+            seen.add(next);
+
+            Module moduleToAdd = switch (next) {
+                case 0 -> new WiresModule();
+                case 1 -> new ButtonModule();
+                case 2 -> new MathModule();
+                case 3 -> new MorseModule();
+                case 4 -> new CaeserModule();
+                default -> throw new IllegalStateException();
+            };
+
+            this.modules.add(moduleToAdd);
+        }
     }
 
-    private static void saveRun() {
+    private void saveRun() {
         // TODO: Implement this
     }
 
