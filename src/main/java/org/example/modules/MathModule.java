@@ -6,9 +6,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MathModule extends Module {
-    private String expression;
+    private final String expression;
     private int answer;
-    private String operation;
+    private final String operation;
 
     private static final String digits = "0123456789";
     private static final String operations = "+-*";
