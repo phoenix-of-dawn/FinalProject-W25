@@ -1,6 +1,9 @@
 package org.example.modules;
 
+import org.example.GameController;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class ButtonModule extends Module {
     public enum ButtonColor {
@@ -31,14 +34,59 @@ public class ButtonModule extends Module {
         this.buttonColor = buttonColor;
     }
 
+    /**
+     * Displays the Button module and handles input
+     * <p>
+     * Ex.: "You see a button of the color RED
+     * <p>
+     * What do you do? press or hold
+     */
     @Override
     public void display() {
-        // TODO Implement this
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("You see a button of the color " + this.buttonColor.toString());
+        System.out.println("What do you do? press or hold <amount of time in seconds>");
+
+        String ans = sc.next();
+
+
+
+        while (!isValidInput(ans))
+        {
+            System.out.println("Invalid input, try again");
+            ans = sc.next();
+        }
+
+        boolean success = solve(ans);
+
+        if (success) {
+            return;
+        } else {
+            GameController.getInstance().strike();
+            display();
+        }
     }
 
     @Override
     public boolean solve(String answer) {
         // TODO Implement this
+        return false;
+    }
+
+    private boolean isValidInput(String in) {
+        if (in.equals("press")) {
+            return true;
+        }
+
+        if (in.startsWith("hold")) {
+            try {
+                Integer.parseInt(in.substring(5, 6));
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }
+
         return false;
     }
 
