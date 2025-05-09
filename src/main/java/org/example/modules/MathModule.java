@@ -1,6 +1,9 @@
 package org.example.modules;
 
+import org.example.GameController;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class MathModule extends Module {
     private String expression;
@@ -43,21 +46,54 @@ public class MathModule extends Module {
         initAnswer();
     }
 
+    /**
+     * Displays the output and handles the input
+     * <br>
+     * Ex.: "You see a display with "2+2=?" on it, what do you write?"
+     */
     @Override
     public void display() {
-        // TODO: Implement display for MathModule
+        System.out.println("You see a display with \"" + expression + "\" on it.");
+        System.out.println("Underneath it, you see a keypad. What do you do?");
+
+        Scanner sc = new Scanner(System.in);
+        String ans = sc.nextLine();
+        while (!isValidInput(ans)) {
+            System.out.println("Invalid input");
+            ans = sc.nextLine();
+        }
+
+        if (!solve(ans)) {
+            GameController.getInstance().strike();
+            display();
+        }
     }
 
     @Override
     public boolean solve(String answer) {
-        // TODO: Implement solve for MathModule
-        return false;
+        return Integer.parseInt(answer) == this.answer;
+    }
+
+    /**
+     * checks if the input is valid
+     * @param in input
+     * @return whether it is valid
+     */
+    private boolean isValidInput(String in) {
+        try {
+            Integer.parseInt(in);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
      * this initializes the answer variable
      */
     private void initAnswer() {
+        // should not throw as the string will always be formatted as intended
         this.answer = switch (this.operation) {
             case "+" -> Integer.parseInt(this.expression.substring(0, 2)) +
                     Integer.parseInt(this.expression.substring(5,7));
