@@ -34,7 +34,7 @@ public class WiresModule extends Module {
 
     /**
      * ONLY USE FOR TESTING PURPOSES
-     * @param wireColor color of wire
+     * @param wireColors color of wire
      */
     public WiresModule(List<WireColor> wireColors) {
         this.name = "Wires";
