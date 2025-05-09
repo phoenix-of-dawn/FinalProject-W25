@@ -12,7 +12,7 @@ public class MorseModule extends Module {
     private String code;
 
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static final Map<Character, String> MORSE_TO_ALPHABET = new HashMap<Character, String>();
+    private static final Map<Character, String> MORSE_TO_ALPHABET = new HashMap<>();
 
     static {
         MORSE_TO_ALPHABET.put('a', ".-");
