@@ -59,10 +59,7 @@ public class ButtonModule extends Module {
         }
 
         boolean success = solve(ans);
-
-        if (success) {
-            return;
-        } else {
+        if (!success)  {
             GameController.getInstance().strike();
             display();
         }
