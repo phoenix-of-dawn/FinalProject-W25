@@ -27,7 +27,9 @@ public class GameController {
     }
 
     public void start() {
-        // TODO: Implement starting the game
+        for (Module module : modules) {
+            module.display();
+        }
     }
 
     private void initModules() {
@@ -53,6 +55,8 @@ public class GameController {
 
             this.modules.add(moduleToAdd);
         }
+
+        this.modules.sort(new Module.ModuleComparator("difficulty"));
     }
 
     private void saveRun() {
