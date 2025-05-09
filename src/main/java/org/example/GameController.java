@@ -23,7 +23,8 @@ public class GameController {
             return instance;
         }
 
-        return new GameController();
+        instance = new GameController();
+        return instance;
     }
 
     public void start() {
