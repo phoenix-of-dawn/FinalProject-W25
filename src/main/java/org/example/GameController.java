@@ -32,6 +32,10 @@ public class GameController {
         }
     }
 
+    public void strike() {
+        strikesLeft--;
+    }
+
     private void initModules() {
         this.modules = new ArrayList<>();
         Set<Integer> seen = new HashSet<>();

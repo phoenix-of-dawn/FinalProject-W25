@@ -1,8 +1,11 @@
 package org.example.modules;
 
+import org.example.GameController;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class WiresModule extends Module {
     public enum WireColor {
@@ -41,13 +44,39 @@ public class WiresModule extends Module {
     }
 
     /**
-     * Displays wires in output
+     * Displays wires in output and handles input
      * <p>
      * Ex.: "You see wires of color "Red, Green, Blue, White, Blue""
      */
     @Override
     public void display() {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("You see wires of colors:");
+        for (WireColor wire : this.wireColors) {
+            System.out.println(wire.toString());
+        }
+        System.out.println("Which wire would you like to cut? 1, 2, 3, 4 or 5?");
+
+        String ans = sc.next();
+        while (!(ans.equals("1")
+                || ans.equals("2")
+                || ans.equals("3")
+                || ans.equals("4")
+                || ans.equals("5")))
+        {
+            System.out.println("Invalid input, try again");
+            ans = sc.next();
+        }
+
+        boolean success = solve(ans);
+
+        if (success) {
+            return;
+        } else {
+            GameController.getInstance().strike();
+            display();
+        }
     }
 
     @Override
