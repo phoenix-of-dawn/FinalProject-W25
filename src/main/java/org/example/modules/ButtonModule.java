@@ -48,14 +48,12 @@ public class ButtonModule extends Module {
         System.out.println("You see a button of the color " + this.buttonColor.toString());
         System.out.println("What do you do? press or hold <amount of time in seconds>");
 
-        String ans = sc.next();
-
-
+        String ans = sc.nextLine();
 
         while (!isValidInput(ans))
         {
             System.out.println("Invalid input, try again");
-            ans = sc.next();
+            ans = sc.nextLine();
         }
 
         boolean success = solve(ans);
@@ -70,8 +68,12 @@ public class ButtonModule extends Module {
 
     @Override
     public boolean solve(String answer) {
-        // TODO Implement this
-        return false;
+        return switch (buttonColor) {
+            case RED, WHITE -> answer.equals("press");
+            case BLUE -> answer.equals("hold 3");
+            case GREEN -> answer.equals("hold 1");
+            case YELLOW -> answer.equals("hold 10");
+        };
     }
 
     private boolean isValidInput(String in) {
@@ -81,7 +83,8 @@ public class ButtonModule extends Module {
 
         if (in.startsWith("hold")) {
             try {
-                Integer.parseInt(in.substring(5, 6));
+                Integer.parseInt(in.substring(5));
+                return true;
             } catch (NumberFormatException e) {
                 return false;
             }
