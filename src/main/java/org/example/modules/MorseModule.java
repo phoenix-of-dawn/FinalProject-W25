@@ -46,6 +46,8 @@ public class MorseModule extends Module {
     public MorseModule() {
         this.name = "Morse";
         this.difficulty = 5;
+        this.code = "";
+        this.decodedString = "";
 
         Random rand = new Random();
 
