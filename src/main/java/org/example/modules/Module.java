@@ -35,7 +35,7 @@ public abstract class Module implements Comparable<Module> {
         public int compare(Module o1, Module o2) {
             return switch (this.compared) {
                 case "name" -> o1.name.compareTo(o2.name);
-                case "difficulty" -> o2.difficulty - o1.difficulty;
+                case "difficulty" -> o1.difficulty - o2.difficulty;
                 case null, default -> o1.compareTo(o2);
             };
         }
