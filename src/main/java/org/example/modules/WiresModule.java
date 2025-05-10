@@ -73,6 +73,9 @@ public class WiresModule extends Module {
 
         if (!success) {
             GameController.getInstance().strike();
+            if (GameController.getInstance().getStrikesLeft() <= 0) {
+                return;
+            }
             display();
         }
     }

@@ -51,6 +51,9 @@ public class CaeserModule extends Module implements Randomizable {
 
         if (!solve(ans)) {
             GameController.getInstance().strike();
+            if (GameController.getInstance().getStrikesLeft() <= 0) {
+                return;
+            }
             randomize();
             display();
         }

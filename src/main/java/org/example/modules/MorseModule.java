@@ -86,6 +86,9 @@ public class MorseModule extends Module {
 
         if (!solve(ans)) {
             GameController.getInstance().strike();
+            if (GameController.getInstance().getStrikesLeft() <= 0) {
+                return;
+            }
             display();
         }
     }

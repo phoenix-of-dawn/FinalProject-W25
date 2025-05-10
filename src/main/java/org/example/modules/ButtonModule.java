@@ -61,6 +61,9 @@ public class ButtonModule extends Module {
         boolean success = solve(ans);
         if (!success)  {
             GameController.getInstance().strike();
+            if (GameController.getInstance().getStrikesLeft() <= 0) {
+                return;
+            }
             display();
         }
     }
