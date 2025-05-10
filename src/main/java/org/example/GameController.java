@@ -70,6 +70,7 @@ public class GameController {
                 return;
             }
             System.out.println("Good job! Success!");
+            timeTaken = System.currentTimeMillis() - startTime;
             saveRun();
             return;
         }
