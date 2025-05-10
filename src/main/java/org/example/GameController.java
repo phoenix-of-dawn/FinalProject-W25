@@ -75,7 +75,6 @@ public class GameController {
         System.out.println("Good job! Success!");
         timeTaken = System.currentTimeMillis() - startTime;
         saveRun();
-        return;
     }
 
     /**
