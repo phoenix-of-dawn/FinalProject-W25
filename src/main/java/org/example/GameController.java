@@ -51,6 +51,7 @@ public class GameController {
         }
 
         System.out.println("What is your name?");
+        sc.nextLine();
         playerName = sc.nextLine();
 
         System.out.println("You have a bomb with modules: ");

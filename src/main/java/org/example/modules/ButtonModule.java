@@ -23,6 +23,9 @@ public class ButtonModule extends Module {
     ButtonColor buttonColor;
 
     public ButtonModule() {
+        this.name = "Button";
+        this.difficulty = 2;
+
         this.buttonColor = ButtonColor.getRandomValue();
     }
 
