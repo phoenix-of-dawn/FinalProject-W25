@@ -70,11 +70,12 @@ public class GameController {
                 saveRun();
                 return;
             }
-            System.out.println("Good job! Success!");
-            timeTaken = System.currentTimeMillis() - startTime;
-            saveRun();
-            return;
         }
+
+        System.out.println("Good job! Success!");
+        timeTaken = System.currentTimeMillis() - startTime;
+        saveRun();
+        return;
     }
 
     /**
