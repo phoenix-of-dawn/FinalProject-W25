@@ -146,13 +146,13 @@ public class GameController {
                 }
 
                 String[] run = runString.split(",");
-                System.out.printf("Name: %s. Bomb defused: %b. Strikes left: %s. Time taken (in seconds): %d",
+                System.out.printf("Name: %s. Bomb defused: %b. Strikes left: %s. Time taken (in seconds): %d\n",
                         run[0],
                         Boolean.getBoolean(run[1]),
                         run[2],
 
                         // Is in milliseconds, need to divide by 1000 to get seconds
-                        Long.getLong(run[3]) / 1000
+                        Long.parseLong(run[3]) / 1000
                 );
             }
         } catch (FileNotFoundException e) {
