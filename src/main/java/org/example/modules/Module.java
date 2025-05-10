@@ -41,6 +41,10 @@ public abstract class Module implements Comparable<Module> {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Module module)) return false;

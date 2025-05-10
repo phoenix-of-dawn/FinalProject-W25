@@ -27,9 +27,22 @@ public class GameController {
         return instance;
     }
 
-    public void start() {
+    public void run() {
+        System.out.println("You have a bomb with modules: ");
+        for (Module module : modules) {
+            System.out.println(module.getName());
+        }
+
         for (Module module : modules) {
             module.display();
+            if (strikesLeft <= 0) {
+                System.out.println("The bomb has exploded. You have lost");
+                saveRun();
+                return;
+            }
+            System.out.println("Good job! Success!");
+            saveRun();
+            return;
         }
     }
 
