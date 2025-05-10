@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class GameController {
@@ -50,6 +49,9 @@ public class GameController {
             showRuns();
             return;
         }
+
+        System.out.println("What is your name?");
+        playerName = sc.nextLine();
 
         System.out.println("You have a bomb with modules: ");
         for (Module module : modules) {
