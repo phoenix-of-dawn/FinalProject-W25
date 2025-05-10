@@ -58,7 +58,7 @@ public class WiresModule extends Module {
         }
         System.out.println("Which wire would you like to cut? 1, 2, 3, 4 or 5?");
 
-        String ans = sc.next();
+        String ans = sc.nextLine();
         while (!(ans.equals("1")
                 || ans.equals("2")
                 || ans.equals("3")
@@ -66,7 +66,7 @@ public class WiresModule extends Module {
                 || ans.equals("5")))
         {
             System.out.println("Invalid input, try again");
-            ans = sc.next();
+            ans = sc.nextLine();
         }
 
         boolean success = solve(ans);
@@ -80,9 +80,30 @@ public class WiresModule extends Module {
         }
     }
 
+    /**
+     * returns whether the wire cut is the right one
+     * @param answer the answer
+     * @return whether the wire cut is the right one
+     */
     @Override
     public boolean solve(String answer) {
-        return false;
+        if (wireColors.get(4) == WireColor.BLACK) {
+            return answer.equals("1");
+        }
+
+        if (wireColors.get(1) == WireColor.RED) {
+            return answer.equals("3");
+        }
+
+        if (wireColors.get(3) == WireColor.BLUE) {
+            return answer.equals("4");
+        }
+
+        if (wireColors.get(3) == WireColor.ORANGE) {
+            return answer.equals("2");
+        }
+
+        return answer.equals("5");
     }
 
     public List<WireColor> getWireColors() {
